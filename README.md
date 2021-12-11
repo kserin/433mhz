@@ -13,26 +13,26 @@ Two layers:
 Fragment datagram:
 <table>
   <tr>
-    <th>0</th>
-    <th>1</th>
-    <th>2</th>
-    <th>3</th>
-    <th>4</th>
-    <th>5</th>
-    <th>6</th>
-    <th>7</th>
+    <th width=100>0</th>
+    <th width=100>1</th>
+    <th width=100>2</th>
+    <th width=100>3</th>
+    <th width=100>4</th>
+    <th width=100>5</th>
+    <th width=100>6</th>
+    <th width=100>7</th>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="4">Fragment number</td>
     <td colspan="4">CRC4</td>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="8">Data</td>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="8">Data</td>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="8">Data</td>
   </tr>
 </table>
@@ -40,26 +40,26 @@ Fragment datagram:
 The first fragment contains the total size of the data instead of the first data byte:
 <table>
   <tr>
-    <th>0</th>
-    <th>1</th>
-    <th>2</th>
-    <th>3</th>
-    <th>4</th>
-    <th>5</th>
-    <th>6</th>
-    <th>7</th>
+    <th width=100>0</th>
+    <th width=100>1</th>
+    <th width=100>2</th>
+    <th width=100>3</th>
+    <th width=100>4</th>
+    <th width=100>5</th>
+    <th width=100>6</th>
+    <th width=100>7</th>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="4">Fragment number ( = 0000)</td>
     <td colspan="4">CRC4</td>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="8">Data size</td>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="8">Data</td>
   </tr>
-  <tr>
+  <tr align="center">
     <td colspan="8">Data</td>
   </tr>
 </table>
