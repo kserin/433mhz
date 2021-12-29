@@ -75,11 +75,6 @@ int Layer2::receive(byte *data, unsigned short mySecretId, byte *myAesKey, Seque
     return -1;
   }
 
-  // Check the sequence number / sender are accepted
-  if (!sequenceNumberCheck(header.sequenceNumber, header.sender)) {
-    return -1;
-  }
-
   // Get ciphered part (secretId + data)
   Rf433Layer2_CipheredData cipheredData;
   memcpy(&cipheredData, buffer + sizeof(Rf433Layer2_Header), sizeof(unsigned short) + header.size);
@@ -91,6 +86,12 @@ int Layer2::receive(byte *data, unsigned short mySecretId, byte *myAesKey, Seque
 
   // Check secretId is correct
   if (cipheredData.secretId != mySecretId) {
+    return -1;
+  }
+
+  // Check the sequence number / sender are accepted
+  // /!\ Sequence number must be checked after secretId check to don't trust a malicious sequence number
+  if (!sequenceNumberCheck(header.sequenceNumber, header.sender)) {
     return -1;
   }
 
