@@ -53,7 +53,7 @@ void Layer1::emit(byte *data, long size) {
     size = RF433_LAYER1_MAX_DATA_SIZE;
   }
 
-  long readed = 0;
+  unsigned long readed = 0;
   byte bytesReaded = 0;
   byte fragmentNumber = 0;
   byte maxBytesPerFragment = 2;
@@ -166,10 +166,9 @@ bool Layer1::receiveData(Rf433Layer1* packet) {
 }
 
 void Layer1::sendData(Rf433Layer1* packet) {
-  long value = packet->fragmentNumber;
+  unsigned long value = packet->fragmentNumber;
   value = (value << 4 ) | packet->crc;
   value = (value << 24) | packet->data;
 
   this->rf.send(value, sizeof(long) * 8);
 }
-

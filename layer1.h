@@ -20,7 +20,7 @@ class Layer1 {
     struct Rf433Layer1 {
       byte fragmentNumber : 4;
       byte crc : 4;
-      long data : 24;
+      unsigned long data : 24;
     };
 
   private:
